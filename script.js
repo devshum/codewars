@@ -51,3 +51,20 @@ function duplicateCount(text){
 
   return [...uniqLetters].length
 }
+
+
+// The marketing team is spending way too much time typing in hashtags.
+// Let's help them with our own Hashtag Generator!
+
+function generateHashtag (str) {
+  const newStr = str.replace(/  +/g, ' ');
+
+  if(newStr[0] !== ' ' && newStr[0] && newStr.length < 140)  {
+    const words = newStr.split(' ').map(word => {
+      const [firstWord, ...others] = word
+      return firstWord.toUpperCase() + others.join('')
+    }).join('')
+
+    return `#${words}`
+  } else  return false
+}
